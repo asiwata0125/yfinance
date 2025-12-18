@@ -420,7 +420,7 @@ hist_custom = ticker.history(start="2020-01-01", end="2023-12-31")
 import yfinance as yf
 
 # プロキシサーバーの設定
-yf.set_config(proxies={'http': 'http://proxy.example.com:8080'})
+yf.set_config(proxy={'http': 'http://proxy.example.com:8080'})
 
 # その後の全ての通信でプロキシが使用されます
 ticker = yf.Ticker("AAPL")

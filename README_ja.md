@@ -327,8 +327,9 @@ print(funds_data.sector_weightings) # セクター配分
 import yfinance as yf
 
 # 同期的にリアルタイムデータを取得
-ticker = yf.Ticker("AAPL")
-with ticker.live() as ws:
+ws = yf.WebSocket()
+with ws:
+    ws.subscribe("AAPL")
     for message in ws:
         print(message)
 

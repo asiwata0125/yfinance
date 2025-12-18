@@ -67,7 +67,6 @@ yfinanceを使用すると、以下のような豊富な金融データを簡単
 ### 2. 企業基本情報 (`info`)
 
 - 企業名、セクター、業種
-- 従業員数
 - 本社所在地
 - ウェブサイトURL
 - 事業概要
@@ -272,8 +271,8 @@ print(hist)
 
 # 財務諸表の取得
 print(msft.quarterly_income_stmt)  # 四半期損益計算書
-print(msft.balance_sheet)          # 貸借対照表
-print(msft.cashflow)                # キャッシュフロー計算書
+print(msft.balance_sheet)  # 貸借対照表
+print(msft.cashflow)  # キャッシュフロー計算書
 
 # 配当金と株式分割の履歴
 print(msft.dividends)

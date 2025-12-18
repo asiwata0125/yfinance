@@ -105,17 +105,7 @@ function parseEarningsDatesFromHTML(html) {
   const earningsDates = [];
   
   try {
-    // Look for data in the HTML - Yahoo Finance stores data in various formats
-    // Try to find JSON data embedded in the page
-    const dataRegex = /"earningsCalendarStores":\s*({[^}]+})/;
-    const match = html.match(dataRegex);
-    
-    if (match) {
-      const data = JSON.parse(match[1]);
-      // Process the data if found
-    }
-    
-    // Alternative: Parse table data
+    // Parse table data from HTML
     // This is a simplified parser - Yahoo's structure may change
     const datePattern = /(\w+\s+\d+,\s+\d{4})/g;
     const dates = html.match(datePattern);
@@ -223,17 +213,18 @@ function getStockPriceOnDate(ticker, dateStr) {
 }
 
 /**
- * Alternative simplified function that uses Yahoo Finance Query API more directly
- * This function gets multiple earnings dates and prices in a single call
+ * Gets historical stock prices for a given year
+ * Note: This function returns raw price data, not earnings-specific data.
+ * For earnings dates and prices, use getEarningsStockPrice() instead.
  * 
  * Usage in Google Sheets:
- *   =getEarningsHistory("AAPL", 2023)
+ *   =getHistoricalPrices("AAPL", 2023)
  * 
  * @param {string} ticker - Stock ticker symbol
- * @param {number} year - Year to retrieve earnings data for
- * @return {Array} 2D array with earnings dates and stock prices
+ * @param {number} year - Year to retrieve data for
+ * @return {Array} 2D array with message or historical price data
  */
-function getEarningsHistory(ticker, year) {
+function getHistoricalPrices(ticker, year) {
   try {
     // Validate inputs
     if (!ticker || typeof ticker !== 'string') {

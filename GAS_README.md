@@ -220,6 +220,6 @@ Utilities.formatDate(earningsDate, Session.getScriptTimeZone(), "yyyy-MM-dd")
 
 ---
 
-**作成日**: 2025年
+**作成日**: 2024年
 **対応言語**: JavaScript (Google Apps Script)
 **必要な権限**: 外部サービスへの接続

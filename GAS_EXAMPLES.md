@@ -258,6 +258,6 @@ function batchGetEarnings(tickers, year) {
 
 ---
 
-**最終更新**: 2025年
+**最終更新**: 2024年
 **バージョン**: 1.0
 **互換性**: Google Apps Script (V8 Runtime)

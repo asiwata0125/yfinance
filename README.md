@@ -14,6 +14,8 @@
 
 **yfinance** offers a Pythonic way to fetch financial & market data from [Yahoo!Ⓡ finance](https://finance.yahoo.com).
 
+📖 **日本語ドキュメント**: [README_ja.md](./README_ja.md) で日本語の詳細な説明をご覧いただけます。
+
 ---
 
 > [!IMPORTANT]  

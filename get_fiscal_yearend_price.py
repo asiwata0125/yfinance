@@ -14,6 +14,7 @@
 import sys
 import yfinance as yf
 import pandas as pd
+import traceback
 from datetime import datetime, timedelta
 
 
@@ -77,7 +78,11 @@ def get_fiscal_yearend_price(ticker_symbol, year):
             return None
         
         # 期末決算日に最も近い日の株価を取得
-        closest_date = min(hist.index, key=lambda d: abs((d.date() if hasattr(d, 'date') else d) - target_date.date()))
+        # pandas DataFrameのインデックスから最も近い日付を効率的に検索
+        hist_dates = pd.to_datetime(hist.index)
+        target_ts = pd.Timestamp(target_date)
+        idx = (hist_dates - target_ts).abs().argmin()
+        closest_date = hist.index[idx]
         stock_price = hist.loc[closest_date, 'Close']
         
         result = {
@@ -92,7 +97,6 @@ def get_fiscal_yearend_price(ticker_symbol, year):
         
     except Exception as e:
         print(f"エラーが発生しました: {e}")
-        import traceback
         traceback.print_exc()
         return None
 

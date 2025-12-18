@@ -155,11 +155,13 @@ Yahoo Financeが対応している全ての市場で使用可能：
 
 ### データが古い
 
-yfinanceのキャッシュが原因の場合があります。以下のコマンドでキャッシュをクリアできます：
+yfinanceのキャッシュが原因の場合があります。スクリプトを再実行することで最新のデータを取得できます。
 
-```python
-import yfinance as yf
-yf.Ticker("AAPL")._download_options()  # キャッシュをリフレッシュ
+必要に応じて、以下のようにキャッシュディレクトリをクリアすることもできます：
+
+```bash
+# yfinanceのキャッシュディレクトリを削除
+rm -rf ~/.cache/py-yfinance
 ```
 
 ## 開発者向け情報

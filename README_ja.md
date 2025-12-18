@@ -384,8 +384,8 @@ print(search.quotes)  # 検索結果の銘柄リスト
 print(search.news)    # 関連ニュース
 
 # ティッカーシンボルの検索
-lookup = yf.Lookup('AAPL', 'US')
-print(lookup.results)
+lookup = yf.Lookup('AAPL')
+print(lookup.all)
 ```
 
 ---
